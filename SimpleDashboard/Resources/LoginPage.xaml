@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleDashboard.Resources.LoginPage"
+             Title="LoginPage">
+    <Grid>
+        <Grid RowDefinitions="*,2*">
+            <Grid BackgroundColor="{StaticResource Primary}" Padding="30">
+                <VerticalStackLayout>
+                    <Label FontFamily="material" TextColor="#FFF" Text="&#x000f004d;" FontSize="28" VerticalOptions="Center" />
+                    <Label Text="Sign in" Margin="0,15,0,0" FontFamily="BoldFont" TextColor="#FFF" FontSize="24" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Frame CornerRadius="20" IsClippedToBounds="True" BackgroundColor="#FFF" Grid.Row="1" Margin="0,-20,0,0" Padding="20" BorderColor="Transparent">
+                <VerticalStackLayout>
+                    <Label Text="Welcome Back" FontFamily="BoldFont" TextColor="{DynamicResource DarkColor}" FontSize="24"  />
+                    <Label Text="Hello there, sign in to continue" FontFamily="LightFont" TextColor="Gray" FontSize="14" />
+
+                    <VerticalStackLayout Margin="0,25" Spacing="10">
+                        <Label Text="Username" FontFamily="LightFont" TextColor="Gray" FontSize="16" />
+                        <Frame Padding="10,5" BackgroundColor="#EEEEEE" x:Name="unameBorder" BorderColor="Transparent">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry Placeholder="Enter your username" x:Name="username" Unfocused="username_Unfocused" />
+                                <Label Grid.Column="1" FontFamily="material" TextColor="{StaticResource Primary}" IsVisible="False" x:Name="unameCheck" Text="&#x000f0133;" FontSize="18" VerticalOptions="Center" />
+
+                           </Grid>
+                        </Frame>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Margin="0,0,0,30" Spacing="10">
+                        <Label Text="Password" FontFamily="LightFont" TextColor="Gray" FontSize="16" />
+                        <Frame Padding="10,5" x:Name="passBorder" BackgroundColor="#EEEEEE" BorderColor="Transparent">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry Placeholder="Enter your password" x:Name="password" IsPassword="True" Unfocused="password_Unfocused" />
+                                <Label Grid.Column="1" FontFamily="material" x:Name="passCheck" TextColor="{StaticResource Primary}" IsVisible="False" Text="&#x000f0133;" FontSize="18" VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <Label Text="Forgot Password?" FontFamily="LightFont" TextColor="{DynamicResource DarkColor}" FontSize="16" />
+
+                    <Button BackgroundColor="{DynamicResource DarkColor}" Text="Sign in" Margin="0,20,0,0" x:Name="login" Clicked="login_Clicked" />
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <Label FontFamily="MediumFont" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Don't have an account? " TextColor="Gray" />
+                    <Span Text="Sign up" TextColor="{DynamicResource Primary}" FontFamily="BoldFont" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </Grid>
+</ContentPage>

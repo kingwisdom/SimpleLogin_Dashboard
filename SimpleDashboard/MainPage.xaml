@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleDashboard.MainPage" BackgroundColor="#eee">
+			 
+    <ScrollView>
+        <VerticalStackLayout 
+            Spacing="15" 
+            Padding="20,0">
+
+            <Grid ColumnDefinitions="*,Auto" Margin="0,30,0,0">
+                <Label 
+                Text="Dashboard"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="24"
+                    FontFamily="BoldFont"
+                   />
+
+                <Frame
+                    IsClippedToBounds="True"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    Padding="0"
+                    CornerRadius="15"
+                    BorderColor="Transparent"
+                    Grid.Column="1"
+                    VerticalOptions="Center">
+                    <Image
+                        Source="https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
+                        Aspect="Fill" />
+                </Frame>
+            </Grid>
+
+            <Frame Padding="15" 
+                   BorderColor="Transparent" 
+                   CornerRadius="20" 
+                   BackgroundColor="{DynamicResource Primary}">
+                <VerticalStackLayout>
+                    <Label Text="January" FontFamily="LightFont" TextColor="#FFF" FontSize="12" />
+                    <Label x:Name="amount" FontFamily="BoldFont" TextColor="#FFF" FontSize="28" />
+                    <Label Text="Daily spend target: $20.89" FontFamily="MediumFont" TextColor="#FFF" FontSize="14" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Padding="15" 
+                   BorderColor="Transparent" 
+                   CornerRadius="20" 
+                   BackgroundColor="#FFF">
+                <StackLayout Spacing="20">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                        <Frame Padding="10" BackgroundColor="OrangeRed" BorderColor="Transparent" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" CornerRadius="10">
+                            <Image Source="https://toppng.com/uploads/preview/bank-branch-icon-white-bank-icon-11553486634btvzxko7z5.png" Aspect="Fill" />
+                        </Frame>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="Net Banking" FontFamily="LightFont" TextColor="#000" FontSize="14" />
+                            <Label Text="$354.90" FontFamily="BoldFont" TextColor="#000" FontSize="16" />
+                        </VerticalStackLayout>
+
+                        <Label Text="Today" Grid.Column="2" VerticalOptions="Center" FontFamily="MediumFont" TextColor="{StaticResource Primary}" FontSize="14" />
+                    </Grid>
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                        <Frame Padding="10" BackgroundColor="DeepPink" BorderColor="Transparent" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" CornerRadius="10">
+                            <Image Source="https://www.pngkit.com/png/full/376-3765359_icon-nutrition-food-white-icon-png.png" Aspect="Fill" />
+                        </Frame>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="food and Drinks" FontFamily="LightFont" TextColor="#000" FontSize="14" />
+                            <Label Text="$354.90" FontFamily="BoldFont" TextColor="#000" FontSize="16" />
+                        </VerticalStackLayout>
+
+                        <Label Text="12 July,2021" Grid.Column="2" VerticalOptions="Center" FontFamily="LightFont" TextColor="{StaticResource Primary}" FontSize="14" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                        <Frame Padding="10" BackgroundColor="Green" BorderColor="Transparent" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" CornerRadius="10">
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/720/720501.png" Aspect="Fill" />
+                        </Frame>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="Clothes" FontFamily="LightFont" TextColor="#000" FontSize="14" />
+                            <Label Text="$354.90" FontFamily="BoldFont" TextColor="#000" FontSize="16" />
+                        </VerticalStackLayout>
+
+                        <Label Text="28 July,2022" Grid.Column="2" VerticalOptions="Center" FontFamily="MediumFont" TextColor="{StaticResource Primary}" FontSize="14" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <Grid ColumnDefinitions="*, Auto">
+                <Label Text="WISHLISTS" FontFamily=" MediumFont" TextColor="#000" FontSize="14" />
+                <Label Text="See All" FontFamily="BoldFont" Grid.Column="1" TextColor="{DynamicResource DarkColor}" FontSize="16" />
+            </Grid>
+
+            <CollectionView SelectionMode="Single" x:Name="wish" VerticalScrollBarVisibility="Never" HeightRequest="120">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No Event yet!." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" VerticalOptions="Center" HeightRequest="120" WidthRequest="120" HasShadow="False" BackgroundColor="{Binding color}" CornerRadius="20" Margin="0" BorderColor="Transparent">
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                                <Image Source="{Binding icon}" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" />
+                                <Label Text="{Binding title}" TextColor="#fff" FontFamily="MediumFont" HorizontalOptions="Center" />
+                                        
+                                    </StackLayout>
+                                </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+ 
+</ContentPage>
